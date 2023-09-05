@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Kreative Schreibunterstützung mit KI",
+    "description": "Entdecken Sie, wie Sie mithilfe von KI-basierten Textgenerierungsmodellen wie ChatGPT Ihre Schreibprojekte optimieren können. Verbessern Sie Ihre Content-Produktion, erhalten Sie sofort Ideen und inspirierende Textvorschläge für Artikel, Blogposts und mehr. Beginnen Sie noch heute mit der Integration von KI in Ihre kreativen Schreibprozesse.",
+    "prompts": "Textgenerierung, kreative Schreibunterstützung, KI-Textgenerierung, ChatGPT, GPT-3",
+    "date": "2023-09-12T15:30:00Z",
+    "author": "AI Insights",
+    "image_url": "https://example.com/images/creative_ai.jpg",
+    "category": "Künstliche Intelligenz"
+  },
+  {
+    "title": "Personalisierte Produktvorschläge mit KI",
+    "description": "Erfahren Sie, wie Sie KI-Algorithmen nutzen können, um personalisierte Produktvorschläge für Ihre Kunden zu erstellen. Steigern Sie die Kundenzufriedenheit und Umsätze, indem Sie auf das individuelle Einkaufsverhalten eingehen. Entdecken Sie, wie Sie mithilfe von KI Ihre E-Commerce-Strategie optimieren können.",
+    "prompts": "Produktvorschläge, Personalisierung, KI-Textgenerierung, ChatGPT, GPT-3",
+    "date": "2023-09-13T10:15:00Z",
+    "author": "SmartCommerce Solutions",
+    "image_url": "https://example.com/images/product_recommendations_ai.jpg",
+    "category": "E-Commerce"
+  },
+  {
+    "title": "Automatisierte Übersetzungen mit KI",
+    "description": "Erfahren Sie, wie KI-Übersetzungsmodelle Ihre globale Kommunikation verbessern können. Übersetzen Sie Inhalte in mehrere Sprachen mit hoher Genauigkeit und Geschwindigkeit. Entdecken Sie die Möglichkeiten, KI in Ihre internationalen Geschäftsprozesse zu integrieren.",
+    "prompts": "Automatisierung, Übersetzung, KI-Textgenerierung, ChatGPT, GPT-3",
+    "date": "2023-09-14T09:45:00Z",
+    "author": "GlobalLanguage Tech",
+    "image_url": "https://example.com/images/translation_ai.jpg",
+    "category": "Sprachtechnologie"
+  }
+]
