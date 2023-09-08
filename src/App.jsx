@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import NewsComponent from "./components/NewsComponent";
 import NewsJsonComponent from "./components/NewsJsonComponent.jsx";
+import NewsApi from "./components/NewsApi.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,7 +12,8 @@ function App() {
   return (
     <>
       <h1 className="logo">AI News</h1>
-      <NewsJsonComponent />
+      <NewsApi />
+      {/* <NewsJsonComponent /> */}
       {/* <NewsComponent /> */}
     </>
   );

@@ -8,8 +8,8 @@ export default function PromptContainer({ news }) {
   function copyToClipboard() {
     /* text aus div, textfield anwählen und in Variable speichern */
     /* const promptText = document.getElementByClassName("read_more_container").innerHtml */
-    navigator.clipboard.writeText(news.prompts);
-    alert("Copied");
+    navigator.clipboard.writeText(news.fields.prompts);
+    /* alert("Copied"); */
     setCopy(!copy);
   }
 
@@ -20,13 +20,14 @@ export default function PromptContainer({ news }) {
   return (
     <div className="read_more_container">
       <div>
-        <p>Prompts: {news.prompts}</p>
+        <p>Prompts: {news.fields.prompts}</p>
         {/*      <input type="text" placeholder={news.prompts} disabled /> */}
         {/*       <label><textarea className="postContent" /></label> */}
       </div>
-      <div><button type="button" onClick={copyToClipboard}>
-        {copy ? "Copied" : "Copy"} Prompt
-      </button>
+      <div>
+        <button type="button" onClick={copyToClipboard}>
+          {copy ? "Copied" : "Copy"} Prompt
+        </button>
       </div>
     </div>
   );
