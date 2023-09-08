@@ -25,7 +25,7 @@ export default function SingleNews({ news }) {
         <ul>
           <li>Category: {news.fields.category}</li>
           <li>Author: {news.fields.author}</li>
-          <li>Date: {news.fields.date}</li>
+          <li>Date: {news.sys.createdAt.slice(0, 10)}</li>
         </ul>
       </div>
     </div>

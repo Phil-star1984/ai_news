@@ -26,7 +26,7 @@ export default function PromptContainer({ news }) {
       </div>
       <div>
         <button type="button" onClick={copyToClipboard}>
-          {copy ? "Copied" : "Copy"} Prompt
+          {copy ? "Copied" : "Copy"}
         </button>
       </div>
     </div>
