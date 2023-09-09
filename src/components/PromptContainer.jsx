@@ -20,14 +20,12 @@ export default function PromptContainer({ news }) {
   return (
     <div className="read_more_container">
       <div>
-        <p>Prompts: {news.fields.prompts}</p>
-        {/*      <input type="text" placeholder={news.prompts} disabled /> */}
-        {/*       <label><textarea className="postContent" /></label> */}
-      </div>
-      <div>
         <button type="button" onClick={copyToClipboard}>
           {copy ? "Copied" : "Copy"}
         </button>
+      </div>
+      <div>
+        <p>Prompts: {news.fields.prompts}</p>
       </div>
     </div>
   );
