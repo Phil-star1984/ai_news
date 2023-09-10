@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import SingleNews from "./SingleNews.jsx";
 import FooterNews from "./FooterNews.jsx";
 import "material-icons/iconfont/material-icons.css";
+/* import SearchBar from "./SearchBar.jsx"; */
 
 export default function NewsApiSearch() {
   const [news, setNews] = useState([]);
@@ -48,18 +49,46 @@ export default function NewsApiSearch() {
 
   return (
     <>
-      <form className="search" onSubmit={handleSubmit}>
-        <input
-          type="search"
-          placeholder="Search Titles"
-          onChange={(e) => handleChange(e.target.value)}
-          value={input}
-        />
+      {/* <SearchBar onSubmit={handleSubmit} value={input} onChange={handleChange} /> */}
 
-        <button type="submit" className="search_button">
-          <span className="material-icons-outlined">search</span>
-        </button>
-      </form>
+      <div className="nav_container">
+        <form className="search" onSubmit={handleSubmit}>
+          <input
+            type="search"
+            placeholder="Search Titles"
+            onChange={(e) => handleChange(e.target.value)}
+            value={input}
+          />
+
+          <button type="submit" className="search_button">
+            <span className="material-icons-outlined">search</span>
+          </button>
+        </form>
+
+        <div className="social_icons">
+          <a
+            href="https://www.instagram.com/ai_news_2021/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src="src/assets/icons8-instagram-48.png" />
+          </a>
+          <a
+            href="https://www.facebook.com/ai_news_2021/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src="src/assets/icons8-facebook-48.png" />
+          </a>
+          <a
+            href="https://www.youtube.com/ai_news_2021/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src="src/assets/icons8-youtube-48.png" />
+          </a>
+        </div>
+      </div>
 
       {showNews &&
         news.map((news, index) => <SingleNews news={news} key={index} />)}

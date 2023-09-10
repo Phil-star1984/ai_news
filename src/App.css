@@ -90,10 +90,26 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
+.nav_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+}
+
+.social_icons {
+  margin: 20px;
+}
+
+.social_icons img {
+  margin: 3px;
+  height: 35px;
+}
+
 form {
   /* width: fit-content; */
   width: 30%;
-  min-width: 260px;
+  min-width: 240px;
   margin: 20px;
   color: #959595;
   display: flex;
