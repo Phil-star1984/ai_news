@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PromptContainer from "./PromptContainer.jsx";
 
-export default function SingleNews({ news }) {
+export default function SingleNews({ news, index }) {
   const [readMore, setReadMore] = useState(false);
 
   function moreText() {
@@ -11,7 +11,7 @@ export default function SingleNews({ news }) {
   useEffect(() => {}, [setReadMore]);
 
   return (
-    <div className="single_news_container">
+    <div key={index} className="single_news_container">
       <h2>{news.fields.title}</h2>
       <p>{news.fields.description}</p>
 

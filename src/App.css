@@ -90,6 +90,50 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
+form {
+  /* width: fit-content; */
+  width: 30%;
+  min-width: 260px;
+  margin: 20px;
+  color: #959595;
+  display: flex;
+  justify-content: space-between;
+  padding: 2px;
+  border: 1px solid white;
+  border-radius: 10px;
+  opacity: 0.9;
+}
+
+input[type="search"] {
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding: 7px 8px;
+  font-size: 14px;
+  color: inherit;
+  border: 1px solid transparent;
+  border-radius: inherit;
+}
+
+input[type="search"]::placeholder {
+  color: #bbb;
+}
+
+button.search_button[type="submit"] {
+  text-indent: -999px;
+  overflow: hidden;
+  width: 50px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: url("src/assets/search_FILL0_wght400_GRAD0_opsz24.svg") no-repeat
+    center;
+  background-color: white;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
 .read_more_container {
   background-color: rgba(255, 255, 255, 0.129);
   border-radius: 8px;
