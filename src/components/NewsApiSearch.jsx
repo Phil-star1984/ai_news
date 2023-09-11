@@ -10,8 +10,9 @@ export default function NewsApiSearch() {
   const [input, setInput] = useState("");
   const [showNews, setShowNews] = useState(true);
 
-  const URL =
-    "https://cdn.contentful.com/spaces/2w9yxl4o2fyy/environments/master/entries?access_token=MNVzh3524dp7m4Nihpw3Zm2ejz8unr_zTJ2BisD3_Ao&content_type=aiNews";
+  const URL = `https://cdn.contentful.com/spaces/2w9yxl4o2fyy/environments/master/entries?access_token=${
+    import.meta.env.VITE_SOME_KEY
+  }&content_type=aiNews`;
 
   const handleSubmit = (e) => e.preventDefault();
 
@@ -67,21 +68,21 @@ export default function NewsApiSearch() {
 
         <div className="social_icons">
           <a
-            href="https://www.instagram.com/ai_news_2021/"
+            href="https://www.instagram.com/the_million_painter/?hl=de"
             target="_blank"
             rel="noreferrer"
           >
             <img src="src/assets/icons8-instagram-48.png" />
           </a>
           <a
-            href="https://www.facebook.com/ai_news_2021/"
+            href="https://www.facebook.com/philsplash/"
             target="_blank"
             rel="noreferrer"
           >
             <img src="src/assets/icons8-facebook-48.png" />
           </a>
           <a
-            href="https://www.youtube.com/ai_news_2021/"
+            href="https://www.youtube.com/channel/UCe2tVF3FthavMsUl6pgP08Q"
             target="_blank"
             rel="noreferrer"
           >
