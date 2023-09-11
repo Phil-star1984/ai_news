@@ -144,7 +144,7 @@ button.search_button[type="submit"] {
   margin: 0;
   border: 1px solid transparent;
   border-radius: 7px;
-  background: url("src/assets/search_FILL0_wght400_GRAD0_opsz24.svg") no-repeat
+  background: url("./assets/search_FILL0_wght400_GRAD0_opsz24.svg") no-repeat
     center;
   background-color: white;
   cursor: pointer;

@@ -72,21 +72,21 @@ export default function NewsApiSearch() {
             target="_blank"
             rel="noreferrer"
           >
-            <img src="src/assets/icons8-instagram-48.png" />
+            <img src="./assets/icons8-instagram-48.png" />
           </a>
           <a
             href="https://www.facebook.com/philsplash/"
             target="_blank"
             rel="noreferrer"
           >
-            <img src="src/assets/icons8-facebook-48.png" />
+            <img src="./assets/icons8-facebook-48.png" />
           </a>
           <a
             href="https://www.youtube.com/channel/UCe2tVF3FthavMsUl6pgP08Q"
             target="_blank"
             rel="noreferrer"
           >
-            <img src="src/assets/icons8-youtube-48.png" />
+            <img src="./assets/icons8-youtube-48.png" />
           </a>
         </div>
       </div>
