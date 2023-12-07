@@ -5,9 +5,9 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
+  <BrowserRouter basename={"/ai_news/"}>
     {/* <React.StrictMode> */}
-      <App />
+    <App />
     {/* </React.StrictMode> */}
   </BrowserRouter>
 );
