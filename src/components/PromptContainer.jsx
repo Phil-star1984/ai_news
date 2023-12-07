@@ -25,7 +25,7 @@ export default function PromptContainer({ news }) {
         </button>
       </div>
       <div>
-        <p>Prompts: {news.fields.prompts}</p>
+        <p>{news.fields.prompts}</p>
       </div>
     </div>
   );

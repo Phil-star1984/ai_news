@@ -18,7 +18,7 @@ export default function SingleNews({ news, index }) {
       {readMore && <PromptContainer news={news} />}
 
       <button type="submit" onClick={moreText}>
-        {readMore ? "Hide" : "Show"} Prompt
+        {readMore ? "Hide" : "Show"} More
       </button>
 
       <div className="sub_info_container">
