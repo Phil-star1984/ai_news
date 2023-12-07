@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import "./App.css";
-import NewsApi from "./components/NewsApi.jsx";
-import NewsHeader from "./components/NewsHeader.jsx";
-import NewsApiSearch from "./components/NewsApiSearch.jsx";
-import NavBar from "./components/NavBar.jsx";
+import FooterNews from "./components/FooterNews";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import Pricing from "./pages/Pricing";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <NewsHeader />
-      {/* <NavBar /> */}
-      <NewsApiSearch />
-      {/* <NewsApi /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/pricing" element={<Pricing />} />
+      </Routes>
+
+      <FooterNews />
     </>
   );
 }

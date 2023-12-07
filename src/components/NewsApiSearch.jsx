@@ -60,10 +60,6 @@ export default function NewsApiSearch() {
             onChange={(e) => handleChange(e.target.value)}
             value={input}
           />
-
-          {/* <button type="submit" className="search_button">
-            <span className="material-icons-outlined">search</span>
-          </button> */}
         </form>
 
         <div className="social_icons">
@@ -96,13 +92,6 @@ export default function NewsApiSearch() {
       <button type="submit" onClick={() => setShowNews(!showNews)}>
         {showNews ? "Hide" : "Show"} News
       </button>
-      {showNews && <FooterNews />}
     </>
   );
 }
-
-/* const results = json.filter(
-  (news) =>
-    news.fields.title.toLowerCase().includes(value.toLowerCase()) ||
-    news.fields.description.toLowerCase().includes(value.toLowerCase())
-); */

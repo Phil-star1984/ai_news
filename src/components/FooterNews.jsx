@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function FooterNews() {
   return (
@@ -6,7 +7,9 @@ export default function FooterNews() {
       <div className="footer_navigation_container">
         <ul>
           <li>Impressum</li>
-          <li>Pricing</li>
+          <li>
+            <Link to="/pricing">Pricing</Link>
+          </li>
           <li>GetAPI</li>
         </ul>
       </div>
