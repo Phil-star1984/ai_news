@@ -11,6 +11,7 @@ export default function SingleNews({ news, index }) {
   useEffect(() => {}, [setReadMore]);
 
   return (
+    
     <div key={index} className="single_news_container">
       <h2>{news.fields.title}</h2>
       <p>{news.fields.description}</p>
@@ -29,5 +30,6 @@ export default function SingleNews({ news, index }) {
         </ul>
       </div>
     </div>
+  
   );
 }

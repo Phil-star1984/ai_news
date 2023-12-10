@@ -1,12 +1,53 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { NewsContext } from "../context//NewsContext.jsx";
+/* import NewsApiSearch from "../components/NewsApiSearch.jsx"; */
 
 export default function NewsHeader() {
+  const { news, setNews } = useContext(NewsContext);
   const [navSize, setnavSize] = useState("10rem");
   const [navColor, setnavColor] = useState("transparent");
+  const [input, setInput] = useState("");
+  /* const [news, setNews] = useState([]); */
+
+  const URL = `https://cdn.contentful.com/spaces/2w9yxl4o2fyy/environments/master/entries?access_token=${
+    import.meta.env.VITE_SOME_KEY
+  }&content_type=aiNews`;
+
+  const handleSubmit = (e) => e.preventDefault();
+
+  const fetchData = (value) => {
+    axios.get(URL).then((response) => {
+      const json = response.data.items;
+      console.log(json);
+
+      const results = json.filter((news) => {
+        return (
+          news.fields.title.toLowerCase().includes(value.toLowerCase()) ||
+          news.fields.description.toLowerCase().includes(value.toLowerCase())
+        );
+      });
+
+      console.log(results);
+      setNews(results);
+
+      if (results.length === 0) {
+        alert("No results found. Try another search!");
+        setInput("");
+        fetchData("");
+      }
+    });
+  };
+
+  useEffect(() => {
+    fetchData("");
+  }, []);
+
   const listenScrollEvent = () => {
     window.scrollY > 10 ? setnavColor("#000000") : setnavColor("transparent");
-    window.scrollY > 10 ? setnavSize("7rem") : setnavSize("10rem");
+    window.scrollY > 10 ? setnavSize("9rem") : setnavSize("10rem");
   };
   useEffect(() => {
     window.addEventListener("scroll", listenScrollEvent);
@@ -14,6 +55,11 @@ export default function NewsHeader() {
       window.removeEventListener("scroll", listenScrollEvent);
     };
   }, []);
+
+  const handleChange = (value) => {
+    setInput(value);
+    fetchData(value);
+  };
 
   return (
     <>
@@ -23,21 +69,39 @@ export default function NewsHeader() {
           height: navSize,
           transition: "all 1s",
           position: "fixed",
-          /* top: 40, */
-          width: "100%",
+          /* border: "1px solid rgba(60, 50, 30, 1)", */
+          /* top: 40,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center", */
+          display: "flex",
+          justifyContent: "center",
           paddingTop: "50px",
           zIndex: 99,
-          left: 0, // Fügt horizontale Ausrichtung hinzu
-          right: 0, // Fügt horizontale Ausrichtung hinzu
+          width: "100%",
+          /* left: 0,
+          right: 0, */
         }}
       >
-        <div className="logo">
-          <Link to="/">
-            <h1>AI.Bro</h1>
-          </Link>
-          <p>by Millionpainter.de</p>
-        </div>
-        {/* <ul>
+        <div className="nav_outer_container">
+          <div className="logo">
+            <Link to="/">
+              <h1>AI.Bro</h1>
+            </Link>
+            <p>by Millionpainter.de</p>
+          </div>
+
+          <div className="nav_container">
+            <form className="search" onSubmit={handleSubmit}>
+              <input
+                type="search"
+                placeholder="Search Titles"
+                onChange={(e) => handleChange(e.target.value)}
+                value={input}
+              />
+            </form>
+
+            {/* <div><ul>
           <li>Home</li>
           <li>About</li>
           <li>
@@ -45,8 +109,54 @@ export default function NewsHeader() {
           </li>
           <li>Skills</li>
           <li>Contact </li>
-        </ul> */}
+        </ul></div> */}
+
+            <div className="nav_right_container">
+              <div>
+                <ul className="nav_main_links">
+                  <li>
+                    <Link to="/news">Daily News</Link>
+                  </li>
+                  <li>
+                    <Link to="/pricing">Pricing</Link>
+                  </li>
+                  <li>
+                    <Link to="/login">Login</Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="social_icons">
+                <a
+                  href="https://www.instagram.com/the_million_painter/?hl=de"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src="./icons8-instagram-48.png" />
+                </a>
+                <a
+                  href="https://www.facebook.com/philsplash/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src="./icons8-facebook-48.png" />
+                </a>
+                <a
+                  href="https://www.youtube.com/channel/UCe2tVF3FthavMsUl6pgP08Q"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src="./icons8-youtube-48.png" />
+                </a>
+              </div>
+            </div>
+            <div className="burger_menu">
+              <RxHamburgerMenu size={'1.9em'} />
+            </div>
+          </div>
+        </div>
       </nav>
+      {/* {news && <NewsApiSearch news={news} />} */}
     </>
   );
 }

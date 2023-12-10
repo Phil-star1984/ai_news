@@ -4,18 +4,23 @@ import FooterNews from "./components/FooterNews";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Pricing from "./pages/Pricing";
+import NewsHeader from "./components/NewsHeader.jsx";
+import NewsApiSearch from "./components/NewsApiSearch.jsx";
+import { NewsProvider } from "./context/NewsContext.jsx";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/pricing" element={<Pricing />} />
-      </Routes>
+      <NewsProvider>
+        <NewsHeader />
+        <NewsApiSearch />
 
-      <FooterNews />
+        <Routes>
+          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/pricing" element={<Pricing />} />
+        </Routes>
+        <FooterNews />
+      </NewsProvider>
     </>
   );
 }
