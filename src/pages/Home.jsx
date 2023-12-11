@@ -1,14 +1,8 @@
 import React from "react";
-
+import NewsApiSearch from "../components/NewsApiSearch";
 
 function Home() {
-
-
-  return (
-    <>
-      <h1>HOMESITE</h1>
-    </>
-  );
+  return <NewsApiSearch />;
 }
 
 export default Home;

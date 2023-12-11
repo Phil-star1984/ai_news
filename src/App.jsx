@@ -13,10 +13,9 @@ function App() {
     <>
       <NewsProvider>
         <NewsHeader />
-        <NewsApiSearch />
-
+        
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<Home />} />
           <Route path="/pricing" element={<Pricing />} />
         </Routes>
         <FooterNews />

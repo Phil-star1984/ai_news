@@ -47,7 +47,7 @@ export default function NewsHeader() {
 
   const listenScrollEvent = () => {
     window.scrollY > 10 ? setnavColor("#000000") : setnavColor("transparent");
-    window.scrollY > 10 ? setnavSize("9rem") : setnavSize("10rem");
+    window.scrollY > 10 ? setnavSize("10rem") : setnavSize("10rem");
   };
   useEffect(() => {
     window.addEventListener("scroll", listenScrollEvent);
@@ -74,13 +74,12 @@ export default function NewsHeader() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center", */
+          top: 0,
           display: "flex",
           justifyContent: "center",
-          paddingTop: "50px",
+          paddingTop: "30px",
           zIndex: 99,
           width: "100%",
-          /* left: 0,
-          right: 0, */
         }}
       >
         <div className="nav_outer_container">
@@ -115,7 +114,10 @@ export default function NewsHeader() {
               <div>
                 <ul className="nav_main_links">
                   <li>
-                    <Link to="/news">Daily News</Link>
+                    <Link to="/news">News</Link>
+                  </li>
+                  <li>
+                    <Link to="/learn">Learn</Link>
                   </li>
                   <li>
                     <Link to="/pricing">Pricing</Link>
@@ -151,12 +153,11 @@ export default function NewsHeader() {
               </div>
             </div>
             <div className="burger_menu">
-              <RxHamburgerMenu size={'1.9em'} />
+              <RxHamburgerMenu size={"1.9em"} />
             </div>
           </div>
         </div>
       </nav>
-      {/* {news && <NewsApiSearch news={news} />} */}
     </>
   );
 }
