@@ -114,7 +114,7 @@ export default function NewsHeader() {
               <div>
                 <ul className="nav_main_links">
                   <li>
-                    <Link to="/news">News</Link>
+                    <Link to="/">News</Link>
                   </li>
                   <li>
                     <Link to="/learn">Learn</Link>

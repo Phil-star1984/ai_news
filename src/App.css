@@ -10,6 +10,10 @@
   margin: 0 auto;
 } */
 
+body {
+  margin: 0;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -30,11 +34,17 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --fs-xl: 5rem;
+  --fs-l: 3.2rem;
+  --fs-m: 2rem;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  /* font-size: 3.2rem; */
+  font-size: var(--fs-l);
+  line-height: var(--fs-l);
+  /* margin: 0; */
 }
 
 button {
@@ -307,11 +317,22 @@ li:hover {
 }
 
 .pricing_outer_container {
-  background-color: #131313;
+  /* background-color: #131313; */
   margin-top: 14rem;
   display: flex;
   justify-content: center;
   text-align: center;
+  padding: 40px 0;
+  background-image: url("/brain_bgrd.jpg"); /* The image used */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat;
+  background-size: cover; /* Resize the background image to cover the entire container*/
+}
+
+.pricing_inner_container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 10%;
 }
 
 .pricing_container {
@@ -319,18 +340,57 @@ li:hover {
   display: flex;
   /* justify-content: center; */
   justify-content: space-between;
-
-  padding-bottom: 30px;
+  padding-bottom: 50px;
 }
 
-.pricing_free,
-.pricing_business,
+.pricing_container h1 {
+  margin: 1rem 0rem;
+}
+.pricing_container h2 {
+  margin: 1rem 0rem;
+}
+
+.pricing_basic,
+.pricing_startup,
 .pricing_enterprise {
   margin: 1rem;
-  width: 300px;
-  height: 450px;
-  background-color: #212121;
+  /* width: 300px;
+  height: 450px; */
+  width: 33%;
+  background-color: #000000;
   border-radius: 10px;
+  box-sizing: border-box;
+  padding: 15px 15px;
+}
+
+/* box-sizing: border-box;
+padding: 1px 5px;
+}
+
+.nav_main_links li a:hover {
+border: 1px solid #ffffff;
+border-radius: 4px;
+padding: 0 4px; */
+
+.basic_usps,
+.startup_usps,
+.enterprise_usps {
+  background-color: #151515;
+  padding: 15px 15px;
+  border-radius: 10px;
+  margin: 20px 0px;
+}
+
+.pricing_basic:hover,
+.pricing_startup:hover,
+.pricing_enterprise:hover {
+  border: 1px solid #ffffff;
+  padding: 14px 14px;
+  background-color: #0d0d0d;
+}
+
+.pricing_container p {
+  text-align: left;
 }
 
 @media (max-width: 700px) {
@@ -354,5 +414,42 @@ li:hover {
 
   .burger_menu {
     display: block;
+  }
+
+  .pricing_outer_container {
+    background-size: 300%;
+    background-repeat: repeat;
+
+    /* filter: blur(7px);
+    backdrop-filter: blur(5px); */
+  }
+
+  .pricing_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pricing_basic,
+  .pricing_startup,
+  .pricing_enterprise {
+    width: 90%;
+    padding: 15px 30px;
+  }
+
+  .pricing_basic:hover,
+  .pricing_startup:hover,
+  .pricing_enterprise:hover {
+    border: 1px solid #ffffff;
+    padding: 14px 29px;
+    background-color: #0d0d0d;
+  }
+
+  .pricing_inner_container {
+    width: 100%;
+    margin: 0 4%;
   }
 }
