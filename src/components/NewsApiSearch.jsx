@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import SingleNews from "./SingleNews.jsx";
 import "material-icons/iconfont/material-icons.css";
 import { NewsContext } from "../context/NewsContext.jsx";
-/* import SearchBar from "./SearchBar.jsx"; */
 
 export default function NewsApiSearch() {
   const { news } = useContext(NewsContext);

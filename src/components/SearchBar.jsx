@@ -1,14 +1,16 @@
-import React from "react";
+/* import React from "react";
 
 export default function SearchBar({ input, handleChange, handleSubmit, news }) {
   return (
     <>
-      <form className="search" onSubmit={handleSubmit}>
+      <form className="search_form" onSubmit={handleSubmit}>
         <input
+          id="blob"
+          className="search_input"
           type="search"
-          placeholder="Search Titles"
+          placeholder="Search Titless"
           onChange={(e) => handleChange(e.target.value)}
-          value={input}
+          
         />
 
         <button type="submit" className="search_button">
@@ -18,3 +20,4 @@ export default function SearchBar({ input, handleChange, handleSubmit, news }) {
     </>
   );
 }
+ */
