@@ -30,6 +30,7 @@ function Courses() {
                   backgroundImage: `url(${course.image.secure_url})`,
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover",
+                  backgroundPosition: "center",
                 }}
               >
               </div> : "No Image Available"}
@@ -42,10 +43,10 @@ function Courses() {
                 </p>
                 <div className="courses_subinfo_container">
                   <div className="courses_subinfo">
-                    <p>Category: Beginner</p>
+                    <p>Author: {course.author}</p>
                   </div>
                   <div className="courses_subinfo">
-                    <p>Duration: 15 Min</p>
+                    <p>Duration: {course.duration}</p>
                   </div>
                 </div>
               </div>

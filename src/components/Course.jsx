@@ -32,6 +32,7 @@ function Course() {
             backgroundImage: `url(${course.image.secure_url})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         ></div>
       ) : (
@@ -41,8 +42,13 @@ function Course() {
         src={course.image ? course.image.secure_url : ""}
         alt={course.title + " image"}
       /> */}
-      <p>{course.title}</p>
-      <p>{course.description}</p>
+      <div className="course_content_container">
+        <h1>{course.title}</h1>
+        <h2>{course.description}</h2>
+        <p>{course.section_one}</p>
+        <p>{course.section_two}</p>
+        <p>{course.section_three}</p>
+      </div>
     </div>
   );
 }

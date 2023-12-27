@@ -6,10 +6,10 @@ function CoursesUpload() {
   const [description, setDescription] = useState("");
   const [duration, setDuration] = useState("");
   const [author, setAuthor] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [sectionOne, setSectionOne] = useState("");
-  const [sectionTwo, setSectionTwo] = useState("");
-  const [sectionThree, setSectionThree] = useState("");
+  const [imgUrl, setImgUrl] = useState("");
+  const [section_one, setSectionOne] = useState("");
+  const [section_two, setSectionTwo] = useState("");
+  const [section_three, setSectionThree] = useState("");
   const [courseImage, setCourseImage] = useState("");
   const [status, setStatus] = useState("");
 
@@ -24,6 +24,12 @@ function CoursesUpload() {
         {
           title,
           description,
+          duration,
+          author,
+          imgUrl,
+          section_one,
+          section_two,
+          section_three,
           image: courseImage,
         }
       );
@@ -43,7 +49,11 @@ function CoursesUpload() {
     setDuration("");
     setAuthor("");
     setCourseImage("");
-    setImageUrl("");
+    setImgUrl("");
+    setSectionOne("");
+    setSectionTwo("");
+    setSectionThree("");
+    setCourseImage("");
   };
 
   const handleCourseImageUpload = (e) => {
@@ -71,7 +81,7 @@ function CoursesUpload() {
       <h1>Upload Courses here</h1>
       <div className="upload_container">
         <form className="upload_form" onSubmit={handleSubmit} method="POST">
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title">Course Title</label>
           <input
             type="text"
             name="title"
@@ -107,46 +117,62 @@ function CoursesUpload() {
               setAuthor(e.target.value);
             }}
           ></input>
-          <label htmlFor="image_url">Image URL</label>
+          <label htmlFor="imgUrl">Image URL</label>
           <input
             type="text"
-            name="image_url"
+            name="imgUrl"
             placeholder="Image URL here"
-            value={imageUrl}
+            value={imgUrl}
             onChange={(e) => {
-              setImageUrl(e.target.value);
+              setImgUrl(e.target.value);
             }}
           ></input>
-          <label htmlFor="section_one">Section One</label>
-          <input
-            type="text"
+          <label>Section One</label>
+          <textarea
             name="section_one"
-            placeholder="Course section one here"
-            value={sectionOne}
+            defaultValue="Edit section one of the course"
+            rows={3}
+            cols={23}
+            value={section_one}
             onChange={(e) => {
               setSectionOne(e.target.value);
             }}
-          ></input>
-          <label htmlFor="section_two">Section Two</label>
-          <input
-            type="text"
+          />
+
+          <label>Section Two</label>
+          <textarea
             name="section_two"
-            placeholder="Course section two here"
-            value={sectionTwo}
+            defaultValue="Edit section two of the course"
+            rows={3}
+            cols={23}
+            value={section_two}
             onChange={(e) => {
               setSectionTwo(e.target.value);
             }}
-          ></input>
-          <label htmlFor="section_three">Section Three</label>
+          />
+
+          {/* <label htmlFor="section_three">Section Three</label>
           <input
             type="text"
             name="section_three"
             placeholder="Course section three here"
-            value={sectionThree}
+            value={section_three}
             onChange={(e) => {
               setSectionThree(e.target.value);
             }}
-          ></input>
+          ></input> */}
+          <label>Section Three</label>
+          <textarea
+            name="section_three"
+            defaultValue="Edit section three of the course"
+            rows={3}
+            cols={23}
+            value={section_three}
+            onChange={(e) => {
+              setSectionThree(e.target.value);
+            }}
+          />
+
           <label htmlFor="file">Upload Course Image</label>
           <input
             type="file"
