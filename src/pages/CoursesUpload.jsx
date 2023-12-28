@@ -78,7 +78,7 @@ function CoursesUpload() {
 
   return (
     <div className="upload_outer_container">
-      <h1>Upload Courses here</h1>
+      <h1>Upload Course here</h1>
       <div className="upload_container">
         <form className="upload_form" onSubmit={handleSubmit} method="POST">
           <label htmlFor="title">Course Title</label>
@@ -179,7 +179,9 @@ function CoursesUpload() {
             accept="image/"
             onChange={handleCourseImageUpload}
           ></input>
-          <button type="submit">Upload Course</button>
+          <button className="upload_button" type="submit">
+            Upload Course
+          </button>
         </form>
         <div>
           {status ? <p>{status}</p> : ""}

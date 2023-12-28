@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import axios from "axios";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { NewsContext } from "../context/NewsContext.jsx";
@@ -112,16 +112,29 @@ export default function NavBar() {
               <div>
                 <ul className="nav_main_links">
                   <li>
-                    <Link to="/">News</Link>
+                    <NavLink to="/" activeClassName="active">
+                      News
+                    </NavLink>
                   </li>
                   <li>
-                    <Link to="/courses">Courses</Link>
+                    <NavLink to="/courses" activeClassName="active">
+                      Courses
+                    </NavLink>
                   </li>
                   <li>
-                    <Link to="/pricing">Pricing</Link>
+                    <NavLink to="/pricing" activeClassName="active">
+                      Pricing
+                    </NavLink>
                   </li>
                   <li>
-                    <Link to="/login">Login</Link>
+                    <NavLink to="/courses/upload" activeClassName="active">
+                      Upload
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/login" activeClassName="active">
+                      Login
+                    </NavLink>
                   </li>
                 </ul>
               </div>
@@ -132,21 +145,21 @@ export default function NavBar() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <img src="./icons8-instagram-48.png" />
+                  <img src="/icons8-instagram-48.png" />
                 </a>
                 <a
                   href="https://www.facebook.com/philsplash/"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <img src="./icons8-facebook-48.png" />
+                  <img src="/icons8-facebook-48.png" />
                 </a>
                 <a
                   href="https://www.youtube.com/channel/UCe2tVF3FthavMsUl6pgP08Q"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <img src="./icons8-youtube-48.png" />
+                  <img src="/icons8-youtube-48.png" />
                 </a>
               </div>
             </div>

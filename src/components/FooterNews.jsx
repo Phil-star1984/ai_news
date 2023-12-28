@@ -12,9 +12,8 @@ export default function FooterNews() {
           </li>
           <li>GetAPI</li>
         </ul>
-        <p>© 2023 AI News by MILLIONPAINTER</p>
+        <p>© 2023 AI.Bro by MILLIONPAINTER</p>
       </div>
-      
     </div>
   );
 }

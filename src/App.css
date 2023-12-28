@@ -136,6 +136,38 @@ input[type="search"]::placeholder {
   color: #bbb;
 }
 
+/* input,
+select,
+textarea {
+  border: 2px solid #333;
+  background-color: rgba(255, 255, 255, 0.125);
+  border-radius: 0.25rem;
+} */
+
+input[type="text"],
+input[type="email"],
+input[type="file"],
+select,
+textarea {
+  /* font: 1.25rem / 1.5 sans-serif; */
+  display: block;
+  background-color: rgba(255, 255, 255, 0.084);
+  box-sizing: border-box;
+  width: 50%;
+  padding: 0.3rem 0.3rem;
+  border-radius: 6px;
+  border: none;
+}
+
+label {
+  margin-top: 15px;
+  margin-bottom: 3px;
+}
+
+.upload_button {
+  margin: 25px 0px;
+}
+
 button.search_button[type="submit"] {
   text-indent: -999px;
   overflow: hidden;
@@ -295,6 +327,12 @@ li:hover {
   padding: 0 4px;
 }
 
+.active {
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  padding: 0 4px;
+}
+
 @keyframes steam {
   0% {
     background-position: 0 0;
@@ -405,12 +443,12 @@ padding: 0 4px; */
 }
 
 .upload_outer_container {
-  margin-top: 14rem;
+  margin-top: 12rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding: 40px 0;
+  /* padding: 20px 0; */
 }
 
 .upload_container {
@@ -457,7 +495,6 @@ padding: 0 4px; */
 .courses_container_inner {
   /* display: flex;
   justify-content: center; */
-
   /* grid-template-columns: 100px 50px 100px;
   grid-template-rows: 80px auto 80px; 
   column-gap: 10px;
@@ -523,7 +560,7 @@ padding: 0 4px; */
 
 .course_outer_container {
   margin-top: 11rem;
-  
+
   /* display: flex;
   justify-content: center;
   flex-direction: column;
@@ -540,10 +577,6 @@ padding: 0 4px; */
   margin-right: auto;
   /* text-align: center; */
 }
-
-
-
-
 
 @media (max-width: 700px) {
   .nav_outer_container {
@@ -605,11 +638,40 @@ padding: 0 4px; */
     margin: 0 4%;
   }
 
+  .upload_outer_container {
+    margin-top: 10rem;
+  }
+
+  .upload_container {
+    width: 90%;
+  }
+
+  .courses_container_outer {
+    margin-top: 12rem;
+    /* background-color: #202020; */
+  }
+
   .courses_container_inner {
     display: grid;
-    padding: 20px;
-    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-columns: repeat(1, 1fr); */
+    grid-template-columns: auto;
     gap: 20px;
-    grid-auto-rows: minmax(20px, auto);
+  }
+
+  .course_keyvisual {
+    height: 315px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="file"],
+  select,
+  textarea {
+    width: 90%;
+  }
+
+  label {
+    margin-top: 10px;
+    margin-bottom: 3px;
   }
 }
