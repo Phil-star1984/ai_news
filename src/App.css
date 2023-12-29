@@ -327,7 +327,13 @@ li:hover {
   padding: 0 4px;
 }
 
-.active {
+.nav_main_links a.active {
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  padding: 0 4px;
+}
+
+.burger_navbar_main_links a.active {
   border: 1px solid #ffffff;
   border-radius: 4px;
   padding: 0 4px;
@@ -363,6 +369,42 @@ li:hover {
 
 .burger_menu {
   display: none;
+}
+
+.burger_navbar {
+  position: fixed;
+  top: 170px;
+  right: 18px;
+  /* height: 100vh; */
+  width: 150px;
+  border-radius: 10px;
+  display: flex;
+  background-color: #32003da2;
+  padding: 20px 10px;
+  backdrop-filter: blur(10px);
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.burger_navbar_main_links li {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  background-color: transparent;
+  margin: 5px 0;
+}
+
+.burger_navbar_main_links li a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  padding: 1px 5px;
+}
+
+.burger_navbar_main_links li a:hover {
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  padding: 0 4px;
 }
 
 .pricing_outer_container {

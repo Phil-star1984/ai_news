@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+/* import { useLocation } from "react-router-dom"; */
 
 function CoursesUpload() {
   const [title, setTitle] = useState("");
@@ -12,6 +13,9 @@ function CoursesUpload() {
   const [section_three, setSectionThree] = useState("");
   const [courseImage, setCourseImage] = useState("");
   const [status, setStatus] = useState("");
+
+  /* const { pathname } = useLocation();
+  console.log(pathname); */
 
   /* console.log(courseImage); */
 
@@ -78,7 +82,7 @@ function CoursesUpload() {
 
   return (
     <div className="upload_outer_container">
-      <h1>Upload Course here</h1>
+      <h1>Upload AI Course</h1>
       <div className="upload_container">
         <form className="upload_form" onSubmit={handleSubmit} method="POST">
           <label htmlFor="title">Course Title</label>
@@ -130,7 +134,7 @@ function CoursesUpload() {
           <label>Section One</label>
           <textarea
             name="section_one"
-            defaultValue="Edit section one of the course"
+            /* defaultValue="Edit section one of the course" */
             rows={3}
             cols={23}
             value={section_one}
@@ -142,7 +146,7 @@ function CoursesUpload() {
           <label>Section Two</label>
           <textarea
             name="section_two"
-            defaultValue="Edit section two of the course"
+            /* defaultValue="Edit section two of the course" */
             rows={3}
             cols={23}
             value={section_two}
@@ -164,7 +168,7 @@ function CoursesUpload() {
           <label>Section Three</label>
           <textarea
             name="section_three"
-            defaultValue="Edit section three of the course"
+            /* defaultValue="Edit section three of the course" */
             rows={3}
             cols={23}
             value={section_three}

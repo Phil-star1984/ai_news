@@ -9,6 +9,7 @@ export default function NavBar() {
   const [navSize, setnavSize] = useState("10rem");
   const [navColor, setnavColor] = useState("transparent");
   const [input, setInput] = useState("");
+  const [mobileMenue, setMobileMenue] = useState(false);
 
   const URL = `https://cdn.contentful.com/spaces/2w9yxl4o2fyy/environments/master/entries?access_token=${
     import.meta.env.VITE_SOME_KEY
@@ -57,6 +58,10 @@ export default function NavBar() {
   const handleChange = (value) => {
     setInput(value);
     fetchData(value);
+  };
+
+  const handleClick = () => {
+    setMobileMenue(!mobileMenue);
   };
 
   return (
@@ -112,27 +117,27 @@ export default function NavBar() {
               <div>
                 <ul className="nav_main_links">
                   <li>
-                    <NavLink to="/" activeClassName="active">
+                    <NavLink end to="/">
                       News
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/courses" activeClassName="active">
+                    <NavLink end to="/courses">
                       Courses
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/pricing" activeClassName="active">
+                    <NavLink end to="/pricing">
                       Pricing
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/courses/upload" activeClassName="active">
+                    <NavLink end to="/courses/upload">
                       Upload
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/login" activeClassName="active">
+                    <NavLink end to="/login">
                       Login
                     </NavLink>
                   </li>
@@ -164,8 +169,42 @@ export default function NavBar() {
               </div>
             </div>
             <div className="burger_menu">
-              <RxHamburgerMenu size={"1.9em"} />
+              <RxHamburgerMenu size={"1.9em"} onClick={handleClick} />
             </div>
+
+            {mobileMenue ? (
+              <div className="burger_navbar">
+                <ul className="burger_navbar_main_links">
+                  <li>
+                    <NavLink end to="/">
+                      News
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink end to="/courses">
+                      Courses
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink end to="/pricing">
+                      Pricing
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink end to="/courses/upload">
+                      Upload
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink end to="/login">
+                      Login
+                    </NavLink>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </nav>
