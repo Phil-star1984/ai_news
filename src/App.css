@@ -622,24 +622,35 @@ padding: 0 4px; */
 
 .auth_outer_container {
   margin-top: 12rem;
-  height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  background-color: #00ff00;
 }
 
 .auth_inner_container {
   display: flex;
-  height: 500px;
   justify-content: center;
   flex-direction: column;
-  background-color: #ff0000;
+  box-sizing: border-box;
+  padding: 50px;
+  background-color: #292929;
   border-radius: 15px;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.signup_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60%;
+  background-color: #37373767;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  /* border: 2px solid blue; */
 }
 
 @media (max-width: 700px) {

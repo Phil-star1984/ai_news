@@ -3,7 +3,6 @@ import "./App.css";
 import FooterNews from "./components/FooterNews";
 import { Routes, Route } from "react-router-dom";
 import AuthPage from "./pages/AuthPage.jsx";
-import Login from "./pages/Login.jsx";
 import Home from "./pages/Home.jsx";
 import Pricing from "./pages/Pricing";
 import NavBar from "./components/NavBar.jsx";
@@ -19,13 +18,12 @@ function App() {
         <NavBar />
 
         <Routes>
-          <Route path="/auth" elment={<AuthPage />} />
           <Route path="/" element={<Home />} />
-
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/courses/upload" element={<CourseUpload />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/courses/:courseId" element={<Course />} />
+          <Route path="/auth" element={<AuthPage />} />
         </Routes>
         <FooterNews />
       </NewsProvider>
