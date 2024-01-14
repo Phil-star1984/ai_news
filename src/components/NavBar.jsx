@@ -137,7 +137,7 @@ export default function NavBar() {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink end to="/auth">
+                    <NavLink end to="/signup">
                       Signup/Login
                     </NavLink>
                   </li>
@@ -196,7 +196,7 @@ export default function NavBar() {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink end to="/auth">
+                    <NavLink end to="/signup">
                       Signup/Login
                     </NavLink>
                   </li>

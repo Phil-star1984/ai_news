@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function AuthPage() {
@@ -7,31 +7,39 @@ function AuthPage() {
   const [eMail, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [response, setResponse] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   const handleClick = async (e) => {
     e.preventDefault();
 
-    const result = await axios.post(
-      "http://localhost:5005/auth/signup",
-      {
-        name: userName,
-        email: eMail,
-        password: password,
-      },
-      { withCredentials: true }
-    );
+    try {
+      const result = await axios.post(
+        "http://localhost:5005/auth/signup",
+        {
+          name: userName,
+          email: eMail,
+          password: password,
+        },
+        { withCredentials: true }
+      );
 
-    if (result.status == 201) {
-      setResponse("Successfully signed up!");
-    } else {
-      setResponse("Sign Up failed.");
+      if (result.status == 201) {
+        setResponse("Successfully signed up!");
+        setIsLoggedIn(true);
+        alert("You have Signed Up!");
+      } else {
+        setResponse("Sign Up failed.");
+      }
+    } catch (error) {
+      /* console.log(error); */
+      setResponse(error.response?.data?.message || "Sign Up failed.");
     }
-
-    console.log(result);
 
     setEmail("");
     setUserName("");
     setPassword("");
+    navigate("/signin");
   };
 
   /* useEffect(() => {}, [response]); */
@@ -67,12 +75,12 @@ function AuthPage() {
               setPassword(e.target.value);
             }}
           ></input>
-          <button type="submit" onClick={handleClick}>
-            SEND
+          <button type="submit" onClick={handleClick} className="signup_button">
+            SIGN UP
           </button>
         </form>
         <p>
-          Already registered? Go to <Link to="/">Sign In</Link>
+          Already registered? Go to <Link to="/signin">Sign In</Link>
         </p>
       </div>
     </div>

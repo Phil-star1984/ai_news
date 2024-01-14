@@ -10,6 +10,7 @@ import { NewsProvider } from "./context/NewsContext.jsx";
 import CourseUpload from "./pages/CoursesUpload.jsx";
 import Courses from "./pages/Courses.jsx";
 import Course from "./components/Course.jsx";
+import SignIn from "./components/SignIn.jsx";
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
           <Route path="/courses/upload" element={<CourseUpload />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/courses/:courseId" element={<Course />} />
-          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/signup" element={<AuthPage />} />
+          <Route path="/signin" element={<SignIn />} />
         </Routes>
         <FooterNews />
       </NewsProvider>
