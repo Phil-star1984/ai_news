@@ -1,21 +1,42 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { NewsContext } from "../context/NewsContext.jsx";
+import { useAuth } from "../context/AuthContext.jsx";
 
 export default function NavBar() {
   const { news, setNews } = useContext(NewsContext);
+  const { isLoggedIn, setIsLoggedIn, userData } = useAuth();
   const [navSize, setnavSize] = useState("10rem");
   const [navColor, setnavColor] = useState("transparent");
   const [input, setInput] = useState("");
   const [mobileMenue, setMobileMenue] = useState(false);
+  const navigate = useNavigate();
 
   const URL = `https://cdn.contentful.com/spaces/2w9yxl4o2fyy/environments/master/entries?access_token=${
     import.meta.env.VITE_SOME_KEY
   }&content_type=aiNews`;
 
+  /* console.log(isLoggedIn, userData) */
   const handleSubmit = (e) => e.preventDefault();
+
+  const userLogout = async () => {
+    try {
+      await axios.post(
+        "http://localhost:5005/auth/logout",
+        {},
+        {
+          withCredentials: true,
+        }
+      );
+      setIsLoggedIn(false);
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+      setIsLoggedIn(false);
+    }
+  };
 
   const fetchData = (value) => {
     axios.get(URL).then((response) => {
@@ -137,9 +158,15 @@ export default function NavBar() {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink end to="/signup">
-                      Signup/Login
-                    </NavLink>
+                    {isLoggedIn ? (
+                      <button onClick={userLogout}>
+                        Logout {userData.name}
+                      </button>
+                    ) : (
+                      <NavLink end to="/signup">
+                        Signup/Login
+                      </NavLink>
+                    )}
                   </li>
                 </ul>
               </div>

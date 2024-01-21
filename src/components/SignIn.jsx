@@ -1,13 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useAuth } from "../context/AuthContext.jsx";
 
 function SignIn() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [response, setResponse] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  /* const [isLoggedIn, setIsLoggedIn] = useState(false); */
+  const {
+    userData,
+    setUserData,
+    isLoggedIn,
+    setIsLoggedIn,
+    isLoading,
+    setIsLoading,
+    checkUser,
+  } = useAuth();
   const navigate = useNavigate();
 
   const handleClick = async (e) => {
@@ -28,10 +37,9 @@ function SignIn() {
         console.log("User could not log in");
       }
       if (response.status == 200) {
-        setIsLoggedIn(true);
-        setResponse(response.data.message);
-        alert("You are logged in now!");
+        alert("You are logged in");
         navigate("/");
+        checkUser();
       }
     } catch (error) {
       /* console.log(error); */

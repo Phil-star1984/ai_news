@@ -12,25 +12,28 @@ import Courses from "./pages/Courses.jsx";
 import Course from "./components/Course.jsx";
 import SignIn from "./components/SignIn.jsx";
 import SignUp from "./components/SignUp.jsx";
+import { AuthProvider } from "./context/AuthContext.jsx";
 
 function App() {
   return (
     <>
-      <NewsProvider>
-        <NavBar />
+      <AuthProvider>
+        <NewsProvider>
+          <NavBar />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/courses/upload" element={<CourseUpload />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/courses/:courseId" element={<Course />} />
-          {/* <Route path="/signup" element={<AuthPage />} /> */}
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/signin" element={<SignIn />} />
-        </Routes>
-        <FooterNews />
-      </NewsProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/courses/upload" element={<CourseUpload />} />
+            <Route path="/courses" element={<Courses />} />
+            <Route path="/courses/:courseId" element={<Course />} />
+            {/* <Route path="/signup" element={<AuthPage />} /> */}
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/signin" element={<SignIn />} />
+          </Routes>
+          <FooterNews />
+        </NewsProvider>
+      </AuthProvider>
     </>
   );
 }
