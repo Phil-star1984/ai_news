@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import FooterNews from "./components/FooterNews";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 /* import AuthPage from "./pages/AuthPage.jsx"; */
 import Home from "./pages/Home.jsx";
 import Pricing from "./pages/Pricing";
@@ -12,28 +12,31 @@ import Courses from "./pages/Courses.jsx";
 import Course from "./components/Course.jsx";
 import SignIn from "./components/SignIn.jsx";
 import SignUp from "./components/SignUp.jsx";
-import { AuthProvider } from "./context/AuthContext.jsx";
+import PrivateRoute from "./components/PrivateRoute.jsx";
+/* import { AuthProvider, useAuth } from "./context/AuthContext.jsx"; */
 
 function App() {
+  /* const { isLoggedIn } = useAuth(); */
+
   return (
     <>
-      <AuthProvider>
-        <NewsProvider>
-          <NavBar />
+      <NewsProvider>
+        <NavBar />
 
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/courses/upload" element={<CourseUpload />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/courses" element={<PrivateRoute />}>
             <Route path="/courses" element={<Courses />} />
+            <Route path="/courses/upload" element={<CourseUpload />} />
             <Route path="/courses/:courseId" element={<Course />} />
-            {/* <Route path="/signup" element={<AuthPage />} /> */}
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/signin" element={<SignIn />} />
-          </Routes>
-          <FooterNews />
-        </NewsProvider>
-      </AuthProvider>
+          </Route>
+
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signin" element={<SignIn />} />
+        </Routes>
+        <FooterNews />
+      </NewsProvider>
     </>
   );
 }

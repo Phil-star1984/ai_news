@@ -31,6 +31,7 @@ export default function NavBar() {
         }
       );
       setIsLoggedIn(false);
+      alert("Successfully logged out");
       navigate("/");
     } catch (error) {
       console.error(error);
@@ -143,20 +144,24 @@ export default function NavBar() {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink end to="/courses">
-                      Courses
-                    </NavLink>
-                  </li>
-                  <li>
                     <NavLink end to="/pricing">
                       Pricing
                     </NavLink>
                   </li>
-                  <li>
-                    <NavLink end to="/courses/upload">
-                      Upload
-                    </NavLink>
-                  </li>
+                  {isLoggedIn ? (
+                    <>
+                      <li>
+                        <NavLink end to="/courses">
+                          Courses
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink end to="/courses/upload">
+                          Upload
+                        </NavLink>
+                      </li>
+                    </>
+                  ) : null}
                   <li>
                     {isLoggedIn ? (
                       <button onClick={userLogout}>
@@ -164,7 +169,7 @@ export default function NavBar() {
                       </button>
                     ) : (
                       <NavLink end to="/signup">
-                        Signup/Login
+                        Signup/in
                       </NavLink>
                     )}
                   </li>
@@ -208,23 +213,27 @@ export default function NavBar() {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink end to="/courses">
-                      Courses
-                    </NavLink>
-                  </li>
-                  <li>
                     <NavLink end to="/pricing">
                       Pricing
                     </NavLink>
                   </li>
-                  <li>
-                    <NavLink end to="/courses/upload">
-                      Upload
-                    </NavLink>
-                  </li>
+                  {isLoggedIn ? (
+                    <>
+                      <li>
+                        <NavLink end to="/courses">
+                          Courses
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink end to="/courses/upload">
+                          Upload
+                        </NavLink>
+                      </li>
+                    </>
+                  ) : null}
                   <li>
                     <NavLink end to="/signup">
-                      Signup/Login
+                      Signup/in
                     </NavLink>
                   </li>
                 </ul>
