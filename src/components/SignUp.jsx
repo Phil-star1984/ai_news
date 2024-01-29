@@ -29,7 +29,12 @@ function SignUp() {
       }
     } catch (error) {
       /* console.log(error); */
-      setResponse(error.response?.data?.message || "Sign Up failed.");
+      if (error.response.status == 409) {
+        alert("You have already signed up, please log in now");
+        navigate("/signin");
+      } else {
+        setResponse(error.response?.data?.message || "Sign Up failed.");
+      }
     }
   };
 

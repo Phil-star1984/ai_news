@@ -363,9 +363,30 @@ li:hover {
   padding: 4rem 0rem;
 }
 
+.footer_navigation_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+li.footer_links {
+  background-color: transparent;
+}
+
 .footer_container a {
+  font-size: 1rem;
+  box-sizing: border-box;
   text-decoration: none;
   color: white;
+  padding: 1px 5px;
+}
+
+.footer_container a:hover {
+  color: white;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  padding: 0 4px;
 }
 
 .burger_menu {
@@ -693,6 +714,21 @@ padding: 0 4px; */
 
 .signin_button {
   margin: 25px 0px;
+}
+
+.impressum_outer_container {
+  margin-top: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.impressum_inner_container {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
 }
 
 @media (max-width: 700px) {

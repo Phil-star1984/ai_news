@@ -1,18 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function FooterNews() {
   return (
     <div className="footer_container">
       <div className="footer_navigation_container">
-        <ul>
-          <li>Impressum</li>
-          <li>
-            <Link to="/pricing">Pricing</Link>
+        <ul className="footer_ul">
+          <li className="footer_links">
+            <NavLink to="/impressum">Impressum</NavLink>
           </li>
-          <li>GetAPI</li>
+          <li className="footer_links">
+            <NavLink to="/pricing">Pricing</NavLink>
+          </li>
+          <li className="footer_links">
+            <NavLink to="/pricing">GetAPI</NavLink>
+          </li>
         </ul>
-        <p>© 2023 AI.Bro by MILLIONPAINTER</p>
+        <div>
+          <p>© 2024 AI.Bro by MILLIONPAINTER</p>
+        </div>
       </div>
     </div>
   );

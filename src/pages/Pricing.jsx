@@ -17,10 +17,10 @@ function Pricing() {
               </div>
               <div className="basic_usps">
                 <h2>Your Value</h2>
-                <p>✅︎ Limited access Daily News</p>
-                <p>✅︎ Limited Access to our API</p>
-                <p>✅︎ Limited Access to Learnings</p>
-                <p>✅︎ Full access Profile</p>
+                <p>✅︎ Basic access AI News</p>
+                <p>✅︎ No Access to our API</p>
+                <p>✅︎ Basic Access to Courses</p>
+                <p>✅︎ Full access 1 Profile</p>
               </div>
               <button>Choose Plan</button>
             </div>
@@ -32,9 +32,9 @@ function Pricing() {
               <div className="startup_usps">
                 <h2>Your Value</h2>
                 <p>✅︎ Full access Daily News</p>
-                <p>✅︎ Full Access to our API</p>
-                <p>✅︎ Full Access to Learnings</p>
-                <p>✅︎ Full access Profile</p>
+                <p>✅︎ No Access to our API</p>
+                <p>✅︎ Full Access to Courses</p>
+                <p>✅︎ Full access 1-4 Profiles</p>
               </div>
               <button>Choose Plan</button>
             </div>
@@ -46,9 +46,9 @@ function Pricing() {
               <div className="enterprise_usps">
                 <h2>Your Value</h2>
                 <p>✅︎ Full access Daily News</p>
-                <p>✅︎ Limited Access to our API</p>
-                <p>✅︎ Limited Access to Learnings</p>
-                <p>✅︎ Full access Profile</p>
+                <p>✅︎ Full Access to our API</p>
+                <p>✅︎ Full Access to Courses</p>
+                <p>✅︎ Full access unlimited Profiles</p>
               </div>
               <button>Choose Plan</button>
             </div>

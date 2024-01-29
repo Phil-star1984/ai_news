@@ -36,6 +36,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     checkUser();
+    
   }, []);
 
   const value = {
@@ -47,6 +48,8 @@ export const AuthProvider = ({ children }) => {
     setIsLoading,
     checkUser,
   };
+
+  console.log(userData)
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

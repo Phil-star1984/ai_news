@@ -13,6 +13,8 @@ import Course from "./components/Course.jsx";
 import SignIn from "./components/SignIn.jsx";
 import SignUp from "./components/SignUp.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
+import Impressum from "./components/Impressum.jsx";
+import AdminRoute from "./components/AdminRoute.jsx";
 /* import { AuthProvider, useAuth } from "./context/AuthContext.jsx"; */
 
 function App() {
@@ -28,12 +30,16 @@ function App() {
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/courses" element={<PrivateRoute />}>
             <Route path="/courses" element={<Courses />} />
-            <Route path="/courses/upload" element={<CourseUpload />} />
             <Route path="/courses/:courseId" element={<Course />} />
+          </Route>
+
+          <Route path="/courses" element={<AdminRoute />}>
+            <Route path="/courses/upload" element={<CourseUpload />} />
           </Route>
 
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
+          <Route path="/impressum" element={<Impressum />} />
         </Routes>
         <FooterNews />
       </NewsProvider>

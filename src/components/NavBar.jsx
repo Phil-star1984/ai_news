@@ -149,18 +149,18 @@ export default function NavBar() {
                     </NavLink>
                   </li>
                   {isLoggedIn ? (
-                    <>
-                      <li>
-                        <NavLink end to="/courses">
-                          Courses
-                        </NavLink>
-                      </li>
-                      <li>
-                        <NavLink end to="/courses/upload">
-                          Upload
-                        </NavLink>
-                      </li>
-                    </>
+                    <li>
+                      <NavLink end to="/courses">
+                        Courses
+                      </NavLink>
+                    </li>
+                  ) : null}
+                  {isLoggedIn && userData.role == "Admin" ? (
+                    <li>
+                      <NavLink end to="/courses/upload">
+                        Upload
+                      </NavLink>
+                    </li>
                   ) : null}
                   <li>
                     {isLoggedIn ? (
