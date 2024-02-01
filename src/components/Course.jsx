@@ -44,10 +44,20 @@ function Course() {
       /> */}
       <div className="course_content_container">
         <h1>{course.title}</h1>
-        <h2>{course.description}</h2>
-        <p>{course.section_one}</p>
-        <p>{course.section_two}</p>
-        <p>{course.section_three}</p>
+        <h2>{course.section_one}</h2>
+        
+        <div>
+          <h2>Kernkonzept</h2>
+          {course.section_two}
+        </div>
+        <div className="course_examples_container">
+          <h2>Praxisbeispiele</h2>
+          {course.section_three}
+        </div>
+        <div className="course_training_container">
+          <h2>Übungen & Reflexion</h2>
+          {course.section_four}
+        </div>
       </div>
     </div>
   );
