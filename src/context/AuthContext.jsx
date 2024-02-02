@@ -16,9 +16,12 @@ export const AuthProvider = ({ children }) => {
     setIsLoading(true);
 
     try {
-      const response = await axios.get("http://localhost:5005/auth/me", {
-        withCredentials: true,
-      });
+      const response = await axios.get(
+        `${import.meta.env.VITE_BASE_URL}auth/me`,
+        {
+          withCredentials: true,
+        }
+      );
       if (response.data && response.data._id) {
         setIsLoggedIn(true);
         setUserData(response.data);
@@ -36,7 +39,6 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     checkUser();
-    
   }, []);
 
   const value = {
@@ -49,7 +51,7 @@ export const AuthProvider = ({ children }) => {
     checkUser,
   };
 
-  console.log(userData)
+  /* console.log(userData); */
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

@@ -9,7 +9,7 @@ function Courses() {
   const [courses, setCourses] = useState([]);
   useEffect(() => {
     try {
-      axios.get("http://localhost:5005/api/courses/").then((res) => {
+      axios.get(`${import.meta.env.VITE_BASE_URL}api/courses/`).then((res) => {
         /* console.log(res.data); */
         setCourses(res.data);
       });
@@ -24,16 +24,19 @@ function Courses() {
         {courses.map((course, index) => (
           <div key={index} className="courses_cards">
             <Link to={course._id}>
-              {course.image ? <div
-                className="courses_cards_keyvisual"
-                style={{
-                  backgroundImage: `url(${course.image.secure_url})`,
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-              </div> : "No Image Available"}
+              {course.image ? (
+                <div
+                  className="courses_cards_keyvisual"
+                  style={{
+                    backgroundImage: `url(${course.image.secure_url})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                ></div>
+              ) : (
+                "No Image Available"
+              )}
               <div className="courses_cards_description">
                 <h2>{course.title}</h2>
                 <p>

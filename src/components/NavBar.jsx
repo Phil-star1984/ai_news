@@ -14,17 +14,13 @@ export default function NavBar() {
   const [mobileMenue, setMobileMenue] = useState(false);
   const navigate = useNavigate();
 
-  const URL = `https://cdn.contentful.com/spaces/2w9yxl4o2fyy/environments/master/entries?access_token=${
-    import.meta.env.VITE_SOME_KEY
-  }&content_type=aiNews`;
-
   /* console.log(isLoggedIn, userData) */
   const handleSubmit = (e) => e.preventDefault();
 
   const userLogout = async () => {
     try {
       await axios.post(
-        "http://localhost:5005/auth/logout",
+        `${import.meta.env.VITE_BASE_URL}auth/logout`,
         {},
         {
           withCredentials: true,
@@ -40,7 +36,7 @@ export default function NavBar() {
   };
 
   const fetchData = (value) => {
-    axios.get(URL).then((response) => {
+    axios.get(import.meta.env.VITE_SOME_KEY).then((response) => {
       const json = response.data.items;
       /* console.log(json); */
 

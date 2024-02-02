@@ -12,11 +12,17 @@ function CoursesUpload() {
     duration: "",
     author: "",
     imgUrl: "",
+    image: "",
     section_one: "",
     section_two: "",
     section_three: "",
     section_four: "",
-    image: "",
+    example_one: "",
+    example_two: "",
+    example_three: "",
+    link_one: "",
+    link_two: "",
+    link_three: "",
   });
 
   const handleSubmit = async (e) => {
@@ -24,7 +30,7 @@ function CoursesUpload() {
 
     try {
       const result = await axios.post(
-        "http://localhost:5005/api/courses/upload",
+        `${import.meta.env.VITE_BASE_URL}api/courses/upload`,
         { ...formData }
       );
 
@@ -50,11 +56,17 @@ function CoursesUpload() {
       duration: "",
       author: "",
       imgUrl: "",
+      image: "",
       section_one: "",
       section_two: "",
       section_three: "",
       section_four: "",
-      image: "",
+      example_one: "",
+      example_two: "",
+      example_three: "",
+      link_one: "",
+      link_two: "",
+      link_three: "",
     });
   };
 
@@ -176,6 +188,60 @@ function CoursesUpload() {
             rows={5}
             cols={30}
             value={formData.section_four}
+            onChange={handleChange}
+          />
+
+          <FormDataInput
+            label="Example One"
+            name="example_one"
+            type="text"
+            placeholder="Example one here"
+            value={formData.example_one}
+            onChange={handleChange}
+          />
+
+          <FormDataInput
+            label="Example Two"
+            name="example_two"
+            type="text"
+            placeholder="Example two here"
+            value={formData.example_two}
+            onChange={handleChange}
+          />
+
+          <FormDataInput
+            label="Example Three"
+            name="example_three"
+            type="text"
+            placeholder="Example three here"
+            value={formData.example_three}
+            onChange={handleChange}
+          />
+
+          <FormDataInput
+            label="Link One"
+            name="link_one"
+            type="text"
+            placeholder="Link one URL here"
+            value={formData.link_one}
+            onChange={handleChange}
+          />
+
+          <FormDataInput
+            label="Link Two"
+            name="link_two"
+            type="text"
+            placeholder="Link two URL here"
+            value={formData.link_two}
+            onChange={handleChange}
+          />
+
+          <FormDataInput
+            label="Link Three"
+            name="link_three"
+            type="text"
+            placeholder="Link three URL here"
+            value={formData.link_three}
             onChange={handleChange}
           />
 
