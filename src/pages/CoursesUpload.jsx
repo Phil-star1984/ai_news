@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import FormDataInput from "../components/FormDataInput.jsx";
-/* import { useLocation } from "react-router-dom"; */
 
 function CoursesUpload() {
   const [successMessage, setSuccessMessage] = useState("");
