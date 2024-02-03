@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter basename={"/ai_news/"}>
+  <BrowserRouter>
     <AuthProvider>
       {/* <React.StrictMode> */}
       <App />
