@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useAuth } from "../context/AuthContext.jsx";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -7,36 +8,65 @@ function Courses() {
   /* API Endpoint req with axios http://localhost:5005/api/courses/ */
   /* display/map courses in Frontend */
   const [courses, setCourses] = useState([]);
+  const { isLoggedIn, userData } = useAuth();
+  const [hasAdminRights, setHasAdminRights] = useState(false);
+
   useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_BASE_URL}api/courses/`,
+          {},
+          { withCredentials: true }
+        );
+        setCourses(response.data);
+        if (isLoggedIn && userData.role === "Admin") {
+          setHasAdminRights(true);
+        }
+      } catch (error) {
+        console.error(error.response?.data?.message || "No courses available");
+      }
+    };
+
+    fetchCourses();
+  }, [isLoggedIn, userData]);
+
+  const deleteCourse = async (id) => {
     try {
-      axios.get(`${import.meta.env.VITE_BASE_URL}api/courses/`).then((res) => {
-        /* console.log(res.data); */
-        setCourses(res.data);
-      });
+      await axios.delete(
+        `${import.meta.env.VITE_BASE_URL}api/courses/${id}`,
+        {},
+        { withCredentials: true }
+      );
+      setCourses((prev) => prev.filter((course) => course._id !== id));
+      alert("Course deleted");
     } catch (error) {
-      /* console.log(error); */
+      console.error("Course could not be deleted", error);
     }
-  }, []);
+  };
+
+  /* const deleteCourse = (id) => {
+    console.log(id);
+  }; */
 
   return (
     <div className="courses_container_outer">
       <div className="courses_container_inner">
-        {courses.map((course, index) => (
-          <div key={index} className="courses_cards">
+        {courses.map((course) => (
+          <div key={course._id} className="courses_cards">
             <Link to={course._id}>
-              {course.image ? (
-                <div
-                  className="courses_cards_keyvisual"
-                  style={{
-                    backgroundImage: `url(${course.image.secure_url})`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                ></div>
-              ) : (
-                "No Image Available"
-              )}
+              <div
+                className="courses_cards_keyvisual"
+                style={{
+                  backgroundImage: `url(${
+                    course.image?.secure_url || "placeholder.jpg"
+                  })`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              ></div>
+
               <div className="courses_cards_description">
                 <h2>{course.title}</h2>
                 <p>
@@ -51,6 +81,16 @@ function Courses() {
                   <div className="courses_subinfo">
                     <p>Duration: {course.duration}</p>
                   </div>
+                  {hasAdminRights && (
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        deleteCourse(course._id);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  )}
                 </div>
               </div>
             </Link>
